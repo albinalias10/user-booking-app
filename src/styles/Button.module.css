@@ -1,0 +1,30 @@
+.button {
+  padding: 1.2rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.button_continue {
+  background-color: #6a4cff;
+  color: white;
+  border: none;
+}
+
+.button_continue:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button_previous {
+  border: 2px solid #6a4cff;
+  color: #6a4cff;
+  background-color: white;
+}
+
+.button_previous:hover {
+  background-color: #6a4cff;
+  color: white;
+}
