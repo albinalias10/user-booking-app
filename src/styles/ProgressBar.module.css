@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  max-width: 600px;
+  height: 6px;
+  background-color: #e5e5e5;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 2rem;
+}
+
+.bar {
+  height: 100%;
+  background-color: #6a4cff;
+  transition: width 0.3s ease;
+}
