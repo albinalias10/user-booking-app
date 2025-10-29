@@ -10,37 +10,44 @@ import {
 import Footer from "./Footer";
 import { LABELS } from "../constants/constants";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../redux/store";
+import type { UserInfoData } from "../redux/actionType";
+import { setUserInfo } from "../redux/action";
 
 const UserInfoForm: React.FC = () => {
   const navigate = useNavigate();
-  const [gpName, setGpName] = useState("");
-  const [email, setEmail] = useState("");
-  const [contact, setContact] = useState("");
+  const dispatch = useDispatch<AppDispatch>();
+  const userInfo: UserInfoData = useSelector(
+    (state: RootState) => state.userInfo
+  );
+  const [gpName, setGpName] = useState(userInfo.gpName || "");
+  const [email, setEmail] = useState(userInfo.email || "");
+  const [contactNumber, setContact] = useState(userInfo.contactNumber || "");
   const [isFormValid, setIsFormValid] = useState(false);
   const [errors, setErrors] = useState({
     gpName: "",
     email: "",
-    contact: "",
+    contactNumber: "",
   });
 
 
   useEffect(() => {
     const gpNameError = validateName(gpName);
     const emailError = validateEmail(email);
-    const contactError = validateContact(contact);
+    const contactError = validateContact(contactNumber);
     setErrors({
       gpName: gpNameError || "",
       email: emailError || "",
-      contact: contactError || "",
+      contactNumber: contactError || "",
     });
     setIsFormValid(!gpNameError && !emailError && !contactError);
-  }, [gpName, email, contact]);
+  }, [gpName, email, contactNumber]);
 
   const handleSubmit = (e: React.FormEvent) => {
-    console.log("22222222222222", isFormValid);
     e.preventDefault();
     if (isFormValid) {
-        console.log("111111111111111");
+        dispatch(setUserInfo({gpName, email, contactNumber}));
         navigate("/appointment-mode");
     }
   };
@@ -104,23 +111,23 @@ const UserInfoForm: React.FC = () => {
           <div className={styles.inputGroup}>
             <div
               className={`${styles.boxWrapper} ${
-                errors.contact ? styles.errorBorder : ""
+                errors.contactNumber ? styles.errorBorder : ""
               }`}
             >
-              <label htmlFor="contact" className={styles.boxLabel}>
+              <label htmlFor="contactNumber" className={styles.boxLabel}>
                 {LABELS.contactLabel}
               </label>
               <input
-                id="contact"
+                id="contactNumber"
                 type="number"
-                value={contact}
+                value={contactNumber}
                 onChange={(e) => setContact(e.target.value)}
                 className={styles.boxInput}
                 placeholder="+353 78876 0233"
               />
             </div>
-            {errors.contact && (
-              <span className={styles.error}>{errors.contact}</span>
+            {errors.contactNumber && (
+              <span className={styles.error}>{errors.contactNumber}</span>
             )}
           </div>
 

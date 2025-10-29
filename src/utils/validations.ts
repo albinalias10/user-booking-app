@@ -12,9 +12,9 @@ export const validateEmail = (email: string): string | null => {
   return null;
 };
 
-export const validateContact = (contact: string): string | null => {
-  if (!contact.trim()) return null; // optional
+export const validateContact = (contactNumber: string): string | null => {
+  if (!contactNumber.trim()) return null; // optional
   const regex = /^[0-9\s+()-]+$/;
-  if (!regex.test(contact)) return LABELS.validationContactMessage;
+  if (!regex.test(contactNumber)) return LABELS.validationContactMessage;
   return null;
 };
