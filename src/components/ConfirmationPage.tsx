@@ -10,7 +10,7 @@ import { clearUserData } from "../redux/action";
 
 const ConfirmationPage: React.FC = () => {
   const navigate = useNavigate();
-    const dispatch = useDispatch<AppDispatch>();
+const dispatch = useDispatch<AppDispatch>();
 
 
   const handleReturnHome = () => {
