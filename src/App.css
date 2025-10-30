@@ -1,6 +1,29 @@
+html,
+body,
 #root {
-  text-align: center;
-  font-family: "Inter", sans-serif;
-  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100%;
   width: 100%;
+  overscroll-behavior: contain;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  background-color: #ffffff;
+  overflow-y: hidden;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Optional: prevent horizontal scroll */
+body {
+  overflow-x: hidden;
 }

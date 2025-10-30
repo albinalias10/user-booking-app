@@ -18,4 +18,14 @@ export const LABELS = {
     validationEmailMessage: "Please enter Email",
     validationContactMessage: "Please enter a valid Contact Number",
     validationEmailInvalidMessage: "Please enter a valid Email",
+    confirmationTitle: "Booking Confirmed!",
+    confirmationMessage: "You should soon receive an email confirming your booking, followed by a reminder email the day before your appointment to your registered email address.",
+    descriptionLabel: " To attend or cancel your session, go to the booking area by clicking the calendar icon in the top navigation.",
+    appointmentFormatLabel: "Select your preferred appointment format",
+    video: "Video",
+    audio: "Audio",
+    importantNoteTitle: "Important Note",
+    alertMessage: "For both audio appointments and video appointments, you will need to return to the portal to join your session at the scheduled time.",
+    alertMessage2: "Clinicians do not call users directly. Ensure you log in a few minutes before your appointment to avoid missing your session.",
+    returnToHome: "Return to Home"
 };

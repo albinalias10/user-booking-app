@@ -1,0 +1,153 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ✅ Tick Icon */
+.tickIcon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: .5rem;
+}
+
+/* ✅ Heading */
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.75rem;
+}
+
+/* ✅ Description */
+.description {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0.3rem 0;
+  text-align: center;
+  max-width: 520px;
+}
+
+/* ✅ Info Box */
+.noteBox {
+  background-color: #FFEF99;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: left;
+  margin: 1.8rem 0 1.5rem;
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+}
+
+.noteHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.noteIcon {
+  color: #6a5900;
+}
+
+.noteTitle {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.noteText {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+}
+
+/* ✅ Button matches alert width */
+.returnButton {
+  background-color: #6a4cff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 2rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 480px; /* ✅ matches noteBox */
+  transition: background 0.3s ease;
+}
+
+.returnButton:hover {
+  background-color: #5a3de6;
+}
+
+/* 🔹 Mobile Responsive */
+@media (max-width: 768px) {
+  .tickIcon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .noteBox,
+  .returnButton {
+    max-width: 100%;
+  }
+
+  .noteBox {
+    padding: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .noteText {
+    font-size: 0.88rem;
+  }
+
+  .returnButton {
+    font-size: 0.95rem;
+    padding: 0.85rem 0;
+    width: 100%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .returnButton {
+    font-size: 0.9rem;
+    padding: 0.8rem 0;
+  }
+}

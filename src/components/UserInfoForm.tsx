@@ -7,13 +7,12 @@ import {
   validateEmail,
   validateName,
 } from "../utils/validations";
-import Footer from "./Footer";
 import { LABELS } from "../constants/constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../redux/store";
 import type { UserInfoData } from "../redux/actionType";
-import { setUserInfo } from "../redux/action";
+import { clearUserData, setUserInfo } from "../redux/action";
 
 const UserInfoForm: React.FC = () => {
   const navigate = useNavigate();
@@ -31,6 +30,11 @@ const UserInfoForm: React.FC = () => {
     contactNumber: "",
   });
 
+useEffect(() => {
+  setGpName(userInfo.gpName || "");
+  setEmail(userInfo.email || "");
+  setContact(userInfo.contactNumber || "");
+}, [userInfo]);
 
   useEffect(() => {
     const gpNameError = validateName(gpName);
@@ -51,7 +55,9 @@ const UserInfoForm: React.FC = () => {
         navigate("/appointment-mode");
     }
   };
-
+    const onPreviousButtonClick = () => {
+        dispatch(clearUserData());
+    };
   return (
     <div className={styles.page}>
       <ProgressBar progress={30} />
@@ -132,15 +138,13 @@ const UserInfoForm: React.FC = () => {
           </div>
 
           <div className={styles.buttonLayout}>
-            <FormButton buttonLabel="Previous" buttonType="previous" />
+            <FormButton buttonLabel="Previous" buttonType="previous" onClick={onPreviousButtonClick}/>
             <FormButton
               buttonLabel="Continue"
               buttonType="continue"
               disabled={!isFormValid}
             />
           </div>
-
-          <Footer />
         </form>
       </section>
     </div>
