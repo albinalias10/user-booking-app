@@ -29,3 +29,9 @@ body,
 body {
   overflow-x: hidden;
 }
+/* 🔹 Hide number input arrows (Chrome, Edge, Safari, Opera) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
