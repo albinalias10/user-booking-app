@@ -18,7 +18,7 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  padding: 0 1rem; /* adds breathing room without overflow */
+  padding: 0 1rem;
 }
 
 .heading {
@@ -38,10 +38,9 @@
   box-sizing: border-box;
 }
 
-/* Fix layout stretch issue */
 .optionBox {
   width: 100%;
-  box-sizing: border-box; /* ✅ ensures borders + padding stay within width */
+  box-sizing: border-box;
   border: 1.5px solid #d6d6d6;
   border-radius: 10px;
   padding: 1.2rem 1rem;
@@ -64,7 +63,6 @@
   box-shadow: 0 0 0 2px rgba(106, 76, 255, 0.2);
 }
 
-/* Buttons layout stays tight within same width */
 .buttonLayout {
   display: flex;
   justify-content: flex-end;
@@ -74,9 +72,9 @@
   box-sizing: border-box;
 }
 
-/* Responsive Layout */
+/* For mobile changes */
 @media (max-width: 768px) {
- .container {
+  .container {
     padding: 0 0.8rem;
   }
 

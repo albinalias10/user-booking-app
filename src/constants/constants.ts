@@ -27,5 +27,10 @@ export const LABELS = {
     importantNoteTitle: "Important Note",
     alertMessage: "For both audio appointments and video appointments, you will need to return to the portal to join your session at the scheduled time.",
     alertMessage2: "Clinicians do not call users directly. Ensure you log in a few minutes before your appointment to avoid missing your session.",
-    returnToHome: "Return to Home"
+    returnToHome: "Return to Home",
+    audioType: "audio",
+    videoType: "video",
+    gpNamePlaceholder: "Enter GP Name",
+    emailPlaceholder: "Enter Email",
+    contactPlaceholder: "+353 78876 0233",
 };

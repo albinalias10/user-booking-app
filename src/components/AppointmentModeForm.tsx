@@ -11,17 +11,18 @@ import { LABELS } from "../constants/constants";
 export const AppointmentModeForm: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-    const appointmentdMode: string = useSelector(
+  const appointmentdMode: string = useSelector(
     (state: RootState) => state.appointmentMode
   );
+  //state for selected mode as audio or video
   const [selectedMode, setSelectedMode] = useState<string>(appointmentdMode || "");
 
+  // implement useeffect for getting the redux state when click on previous button and coming back and also for initial render
   useEffect(() => {
     setSelectedMode(appointmentdMode || "");
-}, [appointmentdMode]);
+  }, [appointmentdMode]);
 
   const handleSelect = (mode: string) => {
-    console.log("Selected mode:", mode);
     dispatch(setAppointmentMode(mode));
     setSelectedMode(mode);
   };
@@ -30,56 +31,47 @@ export const AppointmentModeForm: React.FC = () => {
     e.preventDefault();
     if (selectedMode) {
       dispatch(setAppointmentMode(selectedMode));
-      navigate("/confirmation");
+      navigate("/confirmation"); // navigate to confirmation page on continue
     }
   };
-  const onPreviousButtonClick = () => {
-       navigate("/");
+  const onPreviousButtonClick = () => { // navigate to user info form on previous button click
+    navigate("/");
   }
 
   const onCloseButtonClick = () => {
-    dispatch(setAppointmentMode(""));
+    dispatch(setAppointmentMode("")); //if it is mobile design, clearing the appointment mode selected value on close button click
   };
 
   return (
     <div className={styles.page}>
-      <ProgressBar progress={60} onClose={onCloseButtonClick}/>
-
+      <ProgressBar progress={60} onClose={onCloseButtonClick} />
       <section className={styles.container}>
         <h2 className={styles.heading}>
           {LABELS.appointmentFormatLabel}
         </h2>
-
         <form className={styles.form} onSubmit={handleSubmit}>
-          {/* Video Option */}
           <div
-            className={`${styles.optionBox} ${
-              selectedMode === "video" ? styles.selected : ""
-            }`}
-            onClick={() => handleSelect("video")}
+            className={`${styles.optionBox} ${selectedMode === LABELS.videoType ? styles.selected : ""
+              }`}
+            onClick={() => handleSelect(LABELS.videoType)}
             role="button"
             tabIndex={0}
           >
             <span>{LABELS.video}</span>
           </div>
-
-          {/* Audio Option */}
           <div
-            className={`${styles.optionBox} ${
-              selectedMode === "audio" ? styles.selected : ""
-            }`}
-            onClick={() => handleSelect("audio")}
+            className={`${styles.optionBox} ${selectedMode === LABELS.audioType ? styles.selected : ""
+              }`}
+            onClick={() => handleSelect(LABELS.audioType)}
             role="button"
             tabIndex={0}
           >
             <span>{LABELS.audio}</span>
           </div>
-
-          {/* Buttons */}
           <div className={styles.buttonLayout}>
-            <FormButton buttonLabel="Previous" buttonType="previous" onClick={onPreviousButtonClick}/>
+            <FormButton buttonLabel={LABELS.previousButtonLabel} buttonType="previous" onClick={onPreviousButtonClick} />
             <FormButton
-              buttonLabel="Continue"
+              buttonLabel={LABELS.continueButtonLabel}
               buttonType="continue"
               disabled={!selectedMode}
             />

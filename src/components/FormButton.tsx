@@ -8,7 +8,7 @@ interface FormButtonProps {
   buttonType?: "continue" | "previous" | "backToHome";
   disabled?: boolean;
 }
-
+// Implementing resuable form button component
 const FormButton: React.FC<FormButtonProps> = ({
   buttonLabel,
   onClick,
@@ -17,11 +17,10 @@ const FormButton: React.FC<FormButtonProps> = ({
 }) => {
   return (
     <button
-      className={`${styles.button} ${
-        buttonType === LABELS.continue ? styles.button_continue : styles.button_previous
-    }`}
+      className={`${styles.button} ${buttonType === LABELS.continue ? styles.button_continue : styles.button_previous
+        }`}
       onClick={onClick}
-       type={buttonType === "continue" ? "submit" : "button"}
+      type={buttonType === LABELS.continue ? "submit" : "button"}
       disabled={disabled}
     >
       {buttonLabel}

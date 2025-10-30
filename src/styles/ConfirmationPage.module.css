@@ -18,14 +18,12 @@
   align-items: center;
 }
 
-/* ✅ Tick Icon */
 .tickIcon {
   width: 100px;
   height: 100px;
   margin-bottom: .5rem;
 }
 
-/* ✅ Heading */
 .title {
   font-size: 1.6rem;
   font-weight: 700;
@@ -33,7 +31,6 @@
   margin-bottom: 0.75rem;
 }
 
-/* ✅ Description */
 .description {
   color: #333;
   font-size: 1rem;
@@ -43,8 +40,7 @@
   max-width: 520px;
 }
 
-/* ✅ Info Box */
-.noteBox {
+.alertBox {
   background-color: #FFEF99;
   border-radius: 12px;
   padding: 1rem;
@@ -55,31 +51,30 @@
   box-sizing: border-box;
 }
 
-.noteHeader {
+.alertBoxHeader {
   display: flex;
   align-items: center;
   gap: 0.4rem;
   margin-bottom: 0.5rem;
 }
 
-.noteIcon {
+.alertBoxIcon {
   color: #6a5900;
 }
 
-.noteTitle {
+.alertBoxTitle {
   font-weight: 600;
   color: #333;
   font-size: 0.95rem;
 }
 
-.noteText {
+.alertBoxText {
   font-size: 0.9rem;
   color: #333;
   line-height: 1.5;
   margin-bottom: 0.3rem;
 }
 
-/* ✅ Button matches alert width */
 .returnButton {
   background-color: #6a4cff;
   color: #fff;
@@ -90,7 +85,7 @@
   padding: 0.9rem 2rem;
   cursor: pointer;
   width: 100%;
-  max-width: 480px; /* ✅ matches noteBox */
+  max-width: 480px;
   transition: background 0.3s ease;
 }
 
@@ -98,7 +93,7 @@
   background-color: #5a3de6;
 }
 
-/* 🔹 Mobile Responsive */
+/* For mobile design */
 @media (max-width: 768px) {
   .tickIcon {
     width: 100px;
@@ -115,17 +110,17 @@
     text-align: center;
   }
 
-  .noteBox,
+  .alertBox,
   .returnButton {
     max-width: 100%;
   }
 
-  .noteBox {
+  .alertBox {
     padding: 0.9rem;
     border-radius: 10px;
   }
 
-  .noteText {
+  .alertBoxText {
     font-size: 0.88rem;
   }
 
