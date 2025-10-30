@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/AppointmentForm.module.css";
 import ProgressBar from "./ProgressBar";
 import FormButton from "./FormButton";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../redux/store";
 import { setAppointmentMode } from "../redux/action";
 import { LABELS } from "../constants/constants";
 
 export const AppointmentModeForm: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const [selectedMode, setSelectedMode] = useState<string>("");
+    const appointmentdMode: string = useSelector(
+    (state: RootState) => state.appointmentMode
+  );
+  const [selectedMode, setSelectedMode] = useState<string>(appointmentdMode || "");
+
+  useEffect(() => {
+    setSelectedMode(appointmentdMode || "");
+}, [appointmentdMode]);
 
   const handleSelect = (mode: string) => {
+    console.log("Selected mode:", mode);
+    dispatch(setAppointmentMode(mode));
     setSelectedMode(mode);
   };
 
@@ -28,9 +37,13 @@ export const AppointmentModeForm: React.FC = () => {
        navigate("/");
   }
 
+  const onCloseButtonClick = () => {
+    dispatch(setAppointmentMode(""));
+  };
+
   return (
     <div className={styles.page}>
-      <ProgressBar progress={60} />
+      <ProgressBar progress={60} onClose={onCloseButtonClick}/>
 
       <section className={styles.container}>
         <h2 className={styles.heading}>

@@ -56,11 +56,14 @@ useEffect(() => {
     }
   };
     const onPreviousButtonClick = () => {
+          setGpName("");
+    setEmail("");
+    setContact("");
         dispatch(clearUserData());
     };
   return (
     <div className={styles.page}>
-      <ProgressBar progress={30} />
+      <ProgressBar progress={30}  onClose={onPreviousButtonClick}/>
 
       <section className={styles.container}>
         <h2 className={styles.heading}>
