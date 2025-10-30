@@ -12,6 +12,13 @@ export const userInfoReducer = (state = initialState, action: UserActionTypes): 
                 ...state,
                 userInfo: action.payload,
             };
+        case "SET_APPOINTMENT_MODE":
+            return {
+                ...state,
+                appointmentMode: action.payload,
+            };
+        case "CLEAR_USER_DATA":
+            return initialState;
             default:
             return state;
     }

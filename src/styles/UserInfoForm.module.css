@@ -1,6 +1,7 @@
 .page {
+  flex: 1;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,9 +9,10 @@
   font-family: "Inter", sans-serif;
   box-sizing: border-box;
   padding: 1.25rem;
+  overflow: hidden;
 }
 
-/* Content Container */
+
 .container {
   width: 100%;
   max-width: 600px;
@@ -93,7 +95,6 @@
   text-align: left;
 }
 
-/* Buttons */
 .buttonLayout {
   display: flex;
   justify-content: end;
@@ -103,20 +104,12 @@
   width: 100%;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #7a7a7a;
-}
-
 .brand {
   color: #6a4cff;
   font-weight: 600;
 }
 
-/* 🔹 MOBILE OPTIMIZATION */
+/* for mobile changes */
 @media (max-width: 768px) {
   .container {
     width: 100%;
@@ -164,11 +157,6 @@
     font-size: 1rem;
     padding: 0.9rem 0;
   }
-
-  .footer {
-    font-size: 0.8rem;
-    margin-top: 1.5rem;
-  }
 }
 
 /* Small devices (≤480px) */
@@ -192,9 +180,5 @@
 
   .buttonLayout button {
     padding: 0.8rem 0;
-  }
-
-  .footer {
-    font-size: 0.75rem;
   }
 }

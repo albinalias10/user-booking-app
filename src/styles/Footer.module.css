@@ -21,7 +21,7 @@
   transform: translateY(1px);
 }
 
-/* Responsive */
+/* for mobile layout */
 @media (max-width: 768px) {
   .footer {
     margin-top: 1.5rem;

@@ -1,5 +1,6 @@
 export const SET_USRER_INFO = "SET_USER_INFO";
 export const SET_APPOINTMENT_MODE = "SET_APPOINTMENT_MODE";
+export const CLEAR_USER_DATA = "CLEAR_USER_DATA";
 
 export interface storeState {
   userInfo: UserInfoData;
@@ -17,4 +18,13 @@ export interface SetUserInfoAction {
   payload: UserInfoData;
 }
 
-export type UserActionTypes = SetUserInfoAction;
+export interface clearUserData {
+    type: typeof CLEAR_USER_DATA;
+}
+
+export type SetAppointmentModeAction = {
+  type: typeof SET_APPOINTMENT_MODE;
+  payload: string;
+};
+
+export type UserActionTypes = SetUserInfoAction | clearUserData | SetAppointmentModeAction;
